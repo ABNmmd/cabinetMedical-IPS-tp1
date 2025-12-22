@@ -13,7 +13,7 @@ public class ConsultationController {
     public final ConsultationService consultationService;
 
     @PostMapping("create-from/{rdvId}")
-    public Consultation addConsultation(@RequestBody String rapport, @PathVariable("rdvId") String rdvId ){
-        return consultationService.saveConsultation(Long.valueOf(rdvId), rapport);
+    public Consultation addConsultation(@RequestBody String rapport, @PathVariable("rdvId") Long rdvId ){
+        return consultationService.saveConsultation(rdvId, rapport);
     }
 }

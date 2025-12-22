@@ -17,6 +17,14 @@ public class MedecinService {
             throw new IllegalArgumentException("Le nom est obligatoire.");
         }
 
+        if (m.getSpecialite() == null || m.getSpecialite().isBlank()) {
+            throw new IllegalArgumentException("La spécialité est obligatoire.");
+        }
+
+        if (m.getEmail() == null || !m.getEmail().contains("@")) {
+            throw new IllegalArgumentException("Email invalide.");
+        }
+
         return repo.save(m);
     }
 
